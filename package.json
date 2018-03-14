@@ -1,0 +1,22 @@
+{
+  "name": "salary_proj",
+  "version": "1.0.0",
+  "description": "A searchable salary database for the Columbia Missourian",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasoide/salary_proj.git"
+  },
+  "author": "Thomas Oide",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasoide/salary_proj/issues"
+  },
+  "homepage": "https://github.com/thomasoide/salary_proj#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
