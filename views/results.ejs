@@ -1,0 +1,54 @@
+<% include partials/header %>
+
+  <h1>Results</h1>
+
+  <form action="/search" method="POST">
+    <input type="text" name="last" placeholder="Last Name" />
+    <input type="text" name="first" placeholder="First Name" />
+    <button>Search</button>
+  </form>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Agency</th>
+        <th>Job</th>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Middle</th>
+        <th>Pay</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% results.forEach(function(result) { %>
+      <tr>
+        <td>
+          <%= result.year %>
+        </td>
+        <td>
+          <%= result.agency %>
+        </td>
+        <td>
+          <%= result.position %>
+        </td>
+        <td>
+          <%= result.last %>
+        </td>
+        <td>
+          <%= result.first %>
+        </td>
+        <td>
+          <%= result.middle %>
+        </td>
+        <td>
+          <%= result.pay %>
+        </td>
+      </tr>
+    <% }); %>
+    </tbody>
+  </table>
+
+  <a href="/">Back to search</a>
+
+<% include partials/footer %>

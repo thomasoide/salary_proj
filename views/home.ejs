@@ -1,0 +1,40 @@
+<!--  Headers: Domine
+Subhead: helvetica neue
+Body: Domine-->
+
+<% include partials/header %>
+
+  <h1>Missouri State Worker Salary Database</h1>
+  <!-- <div class="formContainer"> -->
+    <form action="/search" method="POST">
+      <div class="nameInput">
+        <input type="text" name="last" placeholder="Last Name" />
+        <input type="text" name="first" placeholder="First Name" />
+      </div>
+      <button>Search</button>
+    </form>
+  <!-- </div> -->
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Agency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% results.forEach(function(result) { %>
+      <tr>
+        <td>
+          <%= result.agency %>
+        </td>
+        <td>
+          <%= result.pay %>
+        </td>
+      </tr>
+    <% }); %>
+    </tbody>
+  </table>
+
+
+
+<% include partials/footer %>
