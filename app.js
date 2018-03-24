@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
+var model = require('./models/model.js');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
@@ -9,22 +10,11 @@ app.set("view engine", "ejs");
 
 var mysql = require('mysql');
 
-function connect() {
-  var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'G0DUCKS15t!',
-    database : 'new_schema'
-  });
-  return connection;
-}
-
 app.get("/", function(req, res){
-  connection = connect();
+  connection = model.createConnection();
 
   connection.connect(function(err){
     if (err) throw error;
-    // console.log('You are connected to the database');
   });
 
   connection.query('SELECT DISTINCT(agency) FROM salary;', function (err, results) {
@@ -40,16 +30,18 @@ app.post("/search", function(req, res){
   var lastName = req.body.last;
   var params = [firstName, lastName];
 
-  connection = connect();
+  connection = model.createConnection();
 
   connection.connect(function(err){
     if (err) throw error;
-    // console.log('You are connected to the database');
   });
 
   connection.query('SELECT * FROM salary WHERE first LIKE ? AND last LIKE ?', params, function (err, results) {
     if (err) throw err;
-    res.render("results", {results: results})
+    if (results.length !== 0) {
+      res.render("results", {results: results})
+    }
+    res.render("noResult");
   });
 
   connection.end();
@@ -60,7 +52,7 @@ app.post("/search", function(req, res){
 });
 
 app.get("*", function(req, res){
-  res.send("Sorry, page not found.");
+  res.render("noResult");
 });
 
 app.listen(3000, () => console.log('Server has started!'));

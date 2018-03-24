@@ -4,16 +4,16 @@ Body: Domine-->
 
 <% include partials/header %>
 
-  <h1>Missouri State Worker Salary Database</h1>
-  <!-- <div class="formContainer"> -->
-    <form action="/search" method="POST">
+  <div class="formContainer">
+    <h1>Missouri State Worker Salary Database</h1>
+    <form action="/search" method="POST" id="search">
       <div class="nameInput">
-        <input type="text" name="last" placeholder="Last Name" />
-        <input type="text" name="first" placeholder="First Name" />
+        <input type="text" name="last" placeholder="Last Name" required/>
+        <input type="text" name="first" placeholder="First Name" required/>
       </div>
-      <button>Search</button>
+      <button id="searchButton">Search</button>
     </form>
-  <!-- </div> -->
+  </div>
 
   <table class="table">
     <thead>
