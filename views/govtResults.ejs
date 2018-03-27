@@ -1,0 +1,62 @@
+<% include partials/header %>
+
+<div class="formContainer">
+  <h1>Missouri State Worker Salary Database</h1>
+
+<form action="/govt/searchName" method="POST" class="search">
+  <div class="nameInput">
+    <input type="text" name="last" placeholder="Last Name" required/>
+    <input type="text" name="first" placeholder="First Name" required/>
+  </div>
+  <button id="searchButton">Search</button>
+</form>
+
+<form method="POST" action="/govt/searchDept">
+  <select name="select" onchange="this.form.submit()">
+    <option value="default"></option>
+    <option value="AGRICULTURE">AGRICULTURE</option>
+  </select>
+</form>
+</div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Agency</th>
+        <th>Job</th>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Middle</th>
+        <th>Pay</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% results.forEach(function(result) { %>
+      <tr>
+        <td>
+          <%= result.year %>
+        </td>
+        <td>
+          <%= result.agency %>
+        </td>
+        <td>
+          <%= result.position %>
+        </td>
+        <td>
+          <%= result.last %>
+        </td>
+        <td>
+          <%= result.first %>
+        </td>
+        <td>
+          <%= result.middle %>
+        </td>
+        <td>
+          <%= result.pay %>
+        </td>
+      </tr>
+    <% }); %>
+    </tbody>
+  </table>
+<% include partials/footer %>

@@ -1,0 +1,22 @@
+<% include partials/header %>
+
+<div class="formContainer">
+  <h1>Missouri State Worker Salary Database</h1>
+
+<form action="/govt/searchName" method="POST" class="search">
+  <div class="nameInput">
+    <input type="text" name="last" placeholder="Last Name" required/>
+    <input type="text" name="first" placeholder="First Name" required/>
+  </div>
+  <button id="searchButton">Search</button>
+</form>
+
+<form method="POST" action="/govt/searchDept">
+  <select name="select" onchange="this.form.submit()">
+    <option value="default"></option>
+    <option value="AGRICULTURE">AGRICULTURE</option>
+  </select>
+</form>
+</div>
+
+<% include partials/footer %>

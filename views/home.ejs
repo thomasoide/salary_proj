@@ -3,37 +3,43 @@ Subhead: helvetica neue
 Body: Domine-->
 
 <% include partials/header %>
-
-  <div class="formContainer">
-    <h1>Missouri State Worker Salary Database</h1>
-    <form action="/search" method="POST" id="search">
-      <div class="nameInput">
-        <input type="text" name="last" placeholder="Last Name" required/>
-        <input type="text" name="first" placeholder="First Name" required/>
+    <h1>Columbia Missourian Salary Database</h1>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <a href="UMSystem"><h5 class="card-title">UM System</h5></a>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
       </div>
-      <button id="searchButton">Search</button>
-    </form>
+    </div>
+      <div class="col-sm-6">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <a href="city"><h5 class="card-title">City</h5></a>
+            <p class="card-text">Salary information for the employees of the City of Columbia.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <a href="cps"><h5 class="card-title">Columbia Public Schools</h5></a>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <a href="govt"><h5 class="card-title">State Government</h5></a>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
   </div>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Agency</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% results.forEach(function(result) { %>
-      <tr>
-        <td>
-          <%= result.agency %>
-        </td>
-        <td>
-          <%= result.pay %>
-        </td>
-      </tr>
-    <% }); %>
-    </tbody>
-  </table>
+
 
 
 

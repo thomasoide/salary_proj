@@ -1,9 +1,9 @@
 
 DROP TABLE IF EXISTS `como_employees`;
 CREATE TABLE IF NOT EXISTS `como_employees` (
-	`Last`	TEXT,
-	`First`	TEXT,
-	`Job`	TEXT,
+	`last`	TEXT,
+	`first`	TEXT,
+	`job`	TEXT,
 	`Department`	TEXT,
 	`Salary`	NUMERIC
 );

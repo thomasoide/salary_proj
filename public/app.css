@@ -1,9 +1,15 @@
 body {
   margin: 0 0;
+  background: #304977;
 }
 
 .nameInput input {
   margin: 5px;
+}
+
+.button {
+  width: 20%;
+  border: solid .75px #b8b8b8;
 }
 
 .formContainer {
@@ -16,7 +22,7 @@ body {
   padding-left: 0;
 }
 
-#search {
+.search {
   padding-top: 25px;
   padding-bottom: 25px;
 }
@@ -29,6 +35,7 @@ h1 {
   color: #ffffff;
   padding-top: 20px;
   margin: 0 0;
+  font-family: 'Domine', Serif;
 }
 
 table {

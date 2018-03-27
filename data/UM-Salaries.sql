@@ -1,13 +1,13 @@
 
 DROP TABLE IF EXISTS `UM-Salaries`;
 CREATE TABLE IF NOT EXISTS `UM-Salaries` (
-	`Year`	TEXT,
-	`BusinessUnit`	TEXT,
-	`Last`	TEXT,
-	`First`	TEXT,
-	`Department`	TEXT,
-	`Title`	TEXT,
-	`Rate`	NUMERIC
+	`year`	TEXT,
+	`unit`	TEXT,
+	`last`	TEXT,
+	`first`	TEXT,
+	`department`	TEXT,
+	`job`	TEXT,
+	`pay`	NUMERIC
 );
 INSERT INTO `UM-Salaries` VALUES ('2018','COLUM','Abbott','Carmen','SHP/Physical Therapy','PROF, CLINCL',68263);
 INSERT INTO `UM-Salaries` VALUES ('2018','COLUM','Abbott','Colleen','Agricultural Ed and Leadership','SPECIALIST',42000);
