@@ -2,45 +2,38 @@
 Subhead: helvetica neue
 Body: Domine-->
 
-<% include partials/header %>
-    <h1>Columbia Missourian Salary Database</h1>
-    <div class="row">
-    <div class="col-sm-6">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <a href="UMSystem"><h5 class="card-title">UM System</h5></a>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-    </div>
-      <div class="col-sm-6">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <a href="city"><h5 class="card-title">City</h5></a>
-            <p class="card-text">Salary information for the employees of the City of Columbia.</p>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/app.css" />
+		<link href="https://fonts.googleapis.com/css?family=Domine|Open+Sans" rel="stylesheet">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<title>Missourian Salary Database</title>
+	</head>
+	<body>
+    <div class="home-background">
+      <h1>Columbia Missourian Salary Database</h1>
+      <div class="card-container">
+        <div class="card">
+          <div>
+            <a href="UMSystem"><h5 class="card-title">UM System</h5></a>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
-      </div>
-      <div class="col-sm-6">
-          <div class="card" style="width: 18rem;">
+          <div class="card">
             <div class="card-body">
-              <a href="cps"><h5 class="card-title">Columbia Public Schools</h5></a>
+              <a href="city"><h5 class="card-title">City of Columbia</h5></a>
+              <p class="card-text">Salary information for the employees of the City of Columbia.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <a href="govt"><h5 class="card-title">State Government</h5></a>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
           </div>
       </div>
-      <div class="col-sm-6">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <a href="govt"><h5 class="card-title">State Government</h5></a>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
-  </div>
-
-
-
-
+    </div>
 
 <% include partials/footer %>
