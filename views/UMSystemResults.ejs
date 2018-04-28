@@ -1,0 +1,68 @@
+<% include partials/header %>
+
+<div class="formContainer">
+  <h2 class="header">Missouri State Worker Salary Database</h2>
+
+<form action="/UMSystem/searchName" method="POST" class="search">
+  <h4>You are searching the UM System database</h4>
+  <div class="formTextWrapper">
+    <p class="formText">
+      Search UM System employees by name. For more specific results, you can specify the campus where the employee works.
+    </p>
+  </div>
+  <div class="nameInput">
+    <input type="text" name="last" placeholder="Last Name" required/>
+    <input type="text" name="first" placeholder="First Name" required/>
+    <select name="campus" required>
+      <option value="default"></option>
+      <option value="COLUM">MU</option>
+      <option value="HOSPT">HOSPITAL</option>
+      <option value="KCITY">UMKC</option>
+      <option value="ROLLA">MISSOURI S&T</option>
+      <option value="STLOU">UMSL</option>
+      <option value="UMSYS">UM SYSTEM</option>
+    </select>
+  </div>
+  <button id="searchButton">Search</button>
+</form>
+
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Last Name</th>
+      <th>First Name</th>
+      <th>Campus</th>
+      <th>Department</th>
+      <th>Job</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% results.forEach(function(result) { %>
+    <tr>
+      <td>
+        <%= result.last %>
+      </td>
+      <td>
+        <%= result.first %>
+      </td>
+      <td>
+        <%= result.unit %>
+      </td>
+      <td>
+        <%= result.department %>
+      </td>
+      <td>
+        <%= result.job %>
+      </td>
+      <td>
+        <%= result.pay %>
+      </td>
+    </tr>
+  <% }); %>
+  </tbody>
+</table>
+
+<% include partials/footer %>

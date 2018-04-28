@@ -1,9 +1,18 @@
 <% include partials/header %>
 
+<h2 class="header">Columbia Missourian State Worker Salary Database</h2>
+
 <div class="formContainer">
-  <h1 class="header">Missouri State Worker Salary Database</h1>
+  <div class="pageInfo">
+    <h4>You are searching the City of Columbia database</h4>
+  </div>
+
+  <hr />
 
   <form action="/city/searchName" method="POST" class="search">
+    <p class="formText">
+      Search by name
+    </p>
     <div class="nameInput">
       <input type="text" name="last" placeholder="Last Name" required/>
       <input type="text" name="first" placeholder="First Name" required/>
@@ -11,6 +20,9 @@
     <button id="searchButton">Search</button>
   </form>
 
+  <p class="formText">
+    Or search by department
+  </p>
   <form method="POST" action="/city/searchDept">
     <select name="select" onchange="this.form.submit()">
       <option value="default"></option>

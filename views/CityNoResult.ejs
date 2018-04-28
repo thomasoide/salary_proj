@@ -1,9 +1,17 @@
 <% include partials/header %>
 
-<div class="formContainer">
-  <h1>Missouri State Worker Salary Database</h1>
+<h2 class="header">Columbia Missourian State Worker Salary Database</h2>
 
+<div class="formContainer">
+  <div class="pageInfo">
+    <h4>You are searching the City of Columbia database</h4>
+  </div>
+
+  <hr />
   <form action="/city/searchName" method="POST" class="search">
+    <p class="formText">
+      Search by name
+    </p>
     <div class="nameInput">
       <input type="text" name="last" placeholder="Last Name" required/>
       <input type="text" name="first" placeholder="First Name" required/>
@@ -11,6 +19,9 @@
     <button id="searchButton">Search</button>
   </form>
 
+  <p class="formText">
+    Or search by department
+  </p>
   <form method="POST" action="/city/searchDept">
     <select name="select" onchange="this.form.submit()">
       <option value="default"></option>
@@ -22,234 +33,150 @@
       <option value="COMM REL CITY CHANNEL"> COMM REL CITY CHANNEL </option>
       <option value="COMM REL EVENT SERVICES"> COMM REL EVENT SERVICES </option>
       <option value="COMM REL CONTACT CENTER"> COMM REL CONTACT CENTER </option>
-        <option value="FINANCE ADMINISTRATION"> FINANCE ADMINISTRATION </option>
-        <option value="FINANCE ACCOUNTING"> FINANCE ACCOUNTING </option>
-        <option value="FINANCE TREASURY MGMT"> FINANCE TREASURY MGMT </option>
-        <option value="FINANCE PURCHASING"> FINANCE PURCHASING </option>
-        <option value="FINANCE BUSINESS LICENSE"> FINANCE BUSINESS LICENSE </option>
-        <option value="UTILITY CUST SERV"> UTILITY CUST SERV </option>
-        <option value="FINANCE RISK MANAGEMENT"> FINANCE RISK MANAGEMENT </option>
-        <option value="HUMAN RESOURCES"> HUMAN RESOURCES </option>
-        <option value="EMP BENEFIT INSURANCE"> EMP BENEFIT INSURANCE </option>
-        <option value="EMP BENEFIT EE HEALTH-WELL"> EMP BENEFIT EE HEALTH-WELL </option>
-        <option value="EMP BENEFIT CITY UNIV"> EMP BENEFIT CITY UNIV </option>
-        <option value="COUNSELOR / CIVIL"> COUNSELOR / CIVIL </option>
-        <option value="PROSECUTION"> PROSECUTION </option>
-        <option value="MUN COURT OPERATIONS"> MUN COURT OPERATIONS </option>
-        <option value="MUN COURT TRAFFIC VIOLATIONS"> MUN COURT TRAFFIC VIOLATIONS </option>
-        <option value="IT ADMINISTRATION"> IT ADMINISTRATION </option>
-        <option value="IT TELEPHONE"> IT TELEPHONE </option>
-        <option value="IT HELP DESK"> IT HELP DESK </option>
-        <option value="IT APPLICATIONS SUPPORT"> IT APPLICATIONS SUPPORT </option>
-        <option value="IT INFRASTRUCTURE"> IT INFRASTRUCTURE </option>
-        <option value="IT GIS"> IT GIS </option>
-        <option value="IT PMO"> IT PMO </option>
-        <option value="MID MISSOURI SOLID WASTE DISTR"> MID MISSOURI SOLID WASTE DISTR </option>
-        <option value="PD ADMINISTRATION"> PD ADMINISTRATION </option>
-        <option value="PD OPERATIONS/PATROL"> PD OPERATIONS/PATROL </option>
-        <option value="PD RECORDS ADMIN SUPPORT"> PD RECORDS ADMIN SUPPORT </option>
-        <option value="PD OPERATIONS SUPP ADMIN"> PD OPERATIONS SUPP ADMIN </option>
-        <option value="FIRE ADMINISTRATION"> FIRE ADMINISTRATION </option>
-        <option value="FIRE EMERGENCY SERVICES"> FIRE EMERGENCY SERVICES </option>
-        <option value="FIRE TRAINING"> FIRE TRAINING </option>
-        <option value="FIRE CODE ENFORCE &amp; INVEST"> FIRE CODE ENFORCE &amp; INVEST </option>
-        <option value="HD ADMINISTRATION"> HD ADMINISTRATION </option>
-        <option value="HD EPIDEMIOLOGY PLANNING EV"> HD EPIDEMIOLOGY PLANNING EV </option>
-        <option value="HD COMMUNITY HEALTH PROMOTION"> HD COMMUNITY HEALTH PROMOTION </option>
-        <option value="HD ANIMAL CONTROL"> HD ANIMAL CONTROL </option>
-        <option value="HD ENVIRONMENTAL HEALTH"> HD ENVIRONMENTAL HEALTH </option>
-        <option value="HD ADMINISTRATION &amp; SUPPORT"> HD ADMINISTRATION &amp; SUPPORT </option>
-        <option value="HD COMM DISEASE PREV/CONTROL"> HD COMM DISEASE PREV/CONTROL </option>
-        <option value="HD PUB HEALTH NURSING SERV"> HD PUB HEALTH NURSING SERV </option>
-        <option value="HD CLINICAL PREVENTIVE SERVS"> HD CLINICAL PREVENTIVE SERVS </option>
-        <option value="HD WIC &amp; COMMUNITY NUTRITION"> HD WIC &amp; COMMUNITY NUTRITION </option>
-        <option value="PLANNING"> PLANNING </option>
-        <option value="ECONOMIC PLANNING"> ECONOMIC PLANNING </option>
-        <option value="VOLUNTEER PROGRAMS"> VOLUNTEER PROGRAMS </option>
-        <option value="NEIGHBORHOOD PROGRAMS"> NEIGHBORHOOD PROGRAMS </option>
-        <option value="BLDG &amp; SITE DEVELOPMENT"> BLDG &amp; SITE DEVELOPMENT </option>
-        <option value="HUD"> HUD </option>
-        <option value="ECONOMIC DEVELOPMENT"> ECONOMIC DEVELOPMENT </option>
-        <option value="HUMAN SERVICES SUPPORT"> HUMAN SERVICES SUPPORT </option>
-
-        <option value="SOCIAL SERVICES"> SOCIAL SERVICES </option>
-
-        <option value="CULTURAL AFFAIRS"> CULTURAL AFFAIRS </option>
-
-        <option value="CONVENTION &amp; TOURISM ADMIN"> CONVENTION &amp; TOURISM ADMIN </option>
-
-        <option value="P&amp;R ADMINISTRATION"> P&amp;R ADMINISTRATION </option>
-
-        <option value="P&amp;R CARE"> P&amp;R CARE </option>
-
-        <option value="P&amp;R PLAN &amp; DEV ADMINISTRATION"> P&amp;R PLAN &amp; DEV ADMINISTRATION </option>
-
-        <option value="P&amp;R PLANNING"> P&amp;R PLANNING </option>
-
-        <option value="P&amp;R HORTICULTURE"> P&amp;R HORTICULTURE </option>
-
-        <option value="P&amp;R PLANNING FORESTRY"> P&amp;R PLANNING FORESTRY </option>
-
-        <option value="P&amp;R CONSTR &amp; IMPROVEMENTS"> P&amp;R CONSTR &amp; IMPROVEMENTS </option>
-
-        <option value="P&amp;R PARKS MGMT ADMIN"> P&amp;R PARKS MGMT ADMIN </option>
-
-        <option value="REC SERV MGMT ADMIN"> REC SERV MGMT ADMIN </option>
-
-        <option value="P&amp;R PARKS MGMT CENTER"> P&amp;R PARKS MGMT CENTER </option>
-
-        <option value="P&amp;R PARKS MGMT OPERATIONS"> P&amp;R PARKS MGMT OPERATIONS </option>
-
-        <option value="P&amp;R RANGER PROGRAM"> P&amp;R RANGER PROGRAM </option>
-
-        <option value="REC SERV ADMINISTRATION"> REC SERV ADMINISTRATION </option>
-
-        <option value="REC SERV SPORTS PROGRAMS"> REC SERV SPORTS PROGRAMS </option>
-
-        <option value="REC SERV COMMUNITY REC"> REC SERV COMMUNITY REC </option>
-
-        <option value="REC SERV AQUATICS OUTDOOR"> REC SERV AQUATICS OUTDOOR </option>
-
-        <option value="REC SERV GOLF"> REC SERV GOLF </option>
-
-        <option value="REC SERV SPECIAL OLYMPICS"> REC SERV SPECIAL OLYMPICS </option>
-
-        <option value="REC SERV SENIOR/50 PLUS PROG"> REC SERV SENIOR/50 PLUS PROG </option>
-
-        <option value="REC SERV CLASSES &amp; EVENTS"> REC SERV CLASSES &amp; EVENTS </option>
-
-        <option value="REC SERV ADAPTED COMM REC"> REC SERV ADAPTED COMM REC </option>
-
-        <option value="REC SERV ARC ADMINISTRATION"> REC SERV ARC ADMINISTRATION </option>
-
-        <option value="REC SERV ARC FITNESS"> REC SERV ARC FITNESS </option>
-
-        <option value="REC SERV ARC GENERAL OPS"> REC SERV ARC GENERAL OPS </option>
-
-        <option value="REC SERV ARC MAINTENANCE"> REC SERV ARC MAINTENANCE </option>
-
-        <option value="REC SERV GOLF &amp; ATHLETICS"> REC SERV GOLF &amp; ATHLETICS </option>
-
-        <option value="REC SERVICES GOLF COURSE MAINT"> REC SERVICES GOLF COURSE MAINT </option>
-
-        <option value="PW ADMINISTRATION"> PW ADMINISTRATION </option>
-
-        <option value="PW STREETS ADMIN"> PW STREETS ADMIN </option>
-
-        <option value="PW STREETS MAINTENANCE"> PW STREETS MAINTENANCE </option>
-
-        <option value="PW STREET CLEANING"> PW STREET CLEANING </option>
-
-        <option value="PW ENGINEERING"> PW ENGINEERING </option>
-
-        <option value="PARKING ENFORCEMENT"> PARKING ENFORCEMENT </option>
-
-        <option value="PW TRAFFIC CONTROL"> PW TRAFFIC CONTROL </option>
-
-        <option value="PUB TRANS FIXED ROUTE"> PUB TRANS FIXED ROUTE </option>
-
-        <option value="PUB TRANS PARATRANSIT"> PUB TRANS PARATRANSIT </option>
-
-        <option value="PUB TRANS UNIVERSITY SHUTTLE"> PUB TRANS UNIVERSITY SHUTTLE </option>
-
-        <option value="AIRPORT ADMINISTRATION"> AIRPORT ADMINISTRATION </option>
-
-        <option value="AIRPORT AIRFIELD AREAS"> AIRPORT AIRFIELD AREAS </option>
-
-        <option value="AIRPORT TERMINAL AREAS"> AIRPORT TERMINAL AREAS </option>
-
-        <option value="AIRPORT PUBLIC SAFETY"> AIRPORT PUBLIC SAFETY </option>
-
-        <option value="SEWER ADMINISTRATION"> SEWER ADMINISTRATION </option>
-
-        <option value="SEWER ENGINEERING"> SEWER ENGINEERING </option>
-
-        <option value="SEWER SLUDGE &amp; GROUNDS"> SEWER SLUDGE &amp; GROUNDS </option>
-
-        <option value="SEWER FIELD OPERATIONS"> SEWER FIELD OPERATIONS </option>
-
-        <option value="SEWER WASTEWATER TRMT OPER"> SEWER WASTEWATER TRMT OPER </option>
-
-        <option value="SEWER WASTEWATER TRMT LAB"> SEWER WASTEWATER TRMT LAB </option>
-
-        <option value="SEWER LINE MAINTENANCE"> SEWER LINE MAINTENANCE </option>
-
-        <option value="PARKING FACILITIES"> PARKING FACILITIES </option>
-
-        <option value="SOLID WASTE ADMINISTRATION"> SOLID WASTE ADMINISTRATION </option>
-
-        <option value="SOLID WASTE COMMERCIAL"> SOLID WASTE COMMERCIAL </option>
-
-        <option value="SOLID WASTE CONTAINER MAINT"> SOLID WASTE CONTAINER MAINT </option>
-
-        <option value="SOLID WASTE SBD WASTE MGMT DIS"> SOLID WASTE SBD WASTE MGMT DIS </option>
-
-        <option value="SOLID WASTE ROLLOFF SERV"> SOLID WASTE ROLLOFF SERV </option>
-
-        <option value="SOLID WASTE RESIDENTIAL"> SOLID WASTE RESIDENTIAL </option>
-
-        <option value="SOLID WASTE LANDFILL"> SOLID WASTE LANDFILL </option>
-
-        <option value="SOLID WASTE COMPOSTING"> SOLID WASTE COMPOSTING </option>
-
-        <option value="SOLID WASTE UNIVERSITY"> SOLID WASTE UNIVERSITY </option>
-
-        <option value="SOLID WASTE RECYCLING"> SOLID WASTE RECYCLING </option>
-
-        <option value="SOLID WASTE RECYCLING DROPOFF"> SOLID WASTE RECYCLING DROPOFF </option>
-
-        <option value="SOLID WASTE COMM RECYCLING"> SOLID WASTE COMM RECYCLING </option>
-
-        <option value="SOLID WASTE MATERIAL RECOVERY"> SOLID WASTE MATERIAL RECOVERY </option>
-
-        <option value="STORM WATER ENGINEERING"> STORM WATER ENGINEERING </option>
-
-        <option value="STORM WATER FIELD OPS"> STORM WATER FIELD OPS </option>
-
-        <option value="PB BUILDING MAINTENANCE"> PB BUILDING MAINTENANCE </option>
-
-        <option value="PB CUSTODIAL SERVICES"> PB CUSTODIAL SERVICES </option>
-
-        <option value="FO FLEET OPERATIONS"> FO FLEET OPERATIONS </option>
-
-        <option value="WT ENGINEERING"> WT ENGINEERING </option>
-
-        <option value="WT PRODUCTION PLANT"> WT PRODUCTION PLANT </option>
-
-        <option value="WT TRANS DISTR OPERATIONS"> WT TRANS DISTR OPERATIONS </option>
-
-        <option value="WT METER TESTING &amp; MAINT"> WT METER TESTING &amp; MAINT </option>
-
-        <option value="EL ADMINISTRATION"> EL ADMINISTRATION </option>
-
-        <option value="EL RATE ANALYSIS"> EL RATE ANALYSIS </option>
-
-        <option value="EL UTILITY SERVICES"> EL UTILITY SERVICES </option>
-
-        <option value="EL ENGINEERING"> EL ENGINEERING </option>
-
-        <option value="EL PRODUCTION"> EL PRODUCTION </option>
-
-        <option value="EL LANDFILL GAS GENERATOR"> EL LANDFILL GAS GENERATOR </option>
-
-        <option value="EL ENERGY CENTER"> EL ENERGY CENTER </option>
-
-        <option value="EL GENERAL OPERATIONS"> EL GENERAL OPERATIONS </option>
-
-        <option value="EL TRANS CONTROL RM"> EL TRANS CONTROL RM </option>
-
-        <option value="EL STOREROOM"> EL STOREROOM </option>
-
-        <option value="EL METER TESTING &amp; MAINT"> EL METER TESTING &amp; MAINT </option>
-
-        <option value="EL METER READING"> EL METER READING </option>
-
-        <option value="RR ADMINISTRATION"> RR ADMINISTRATION </option>
-
+      <option value="FINANCE ADMINISTRATION"> FINANCE ADMINISTRATION </option>
+      <option value="FINANCE ACCOUNTING"> FINANCE ACCOUNTING </option>
+      <option value="FINANCE TREASURY MGMT"> FINANCE TREASURY MGMT </option>
+      <option value="FINANCE PURCHASING"> FINANCE PURCHASING </option>
+      <option value="FINANCE BUSINESS LICENSE"> FINANCE BUSINESS LICENSE </option>
+      <option value="UTILITY CUST SERV"> UTILITY CUST SERV </option>
+      <option value="FINANCE RISK MANAGEMENT"> FINANCE RISK MANAGEMENT </option>
+      <option value="HUMAN RESOURCES"> HUMAN RESOURCES </option>
+      <option value="EMP BENEFIT INSURANCE"> EMP BENEFIT INSURANCE </option>
+      <option value="EMP BENEFIT EE HEALTH-WELL"> EMP BENEFIT EE HEALTH-WELL </option>
+      <option value="EMP BENEFIT CITY UNIV"> EMP BENEFIT CITY UNIV </option>
+      <option value="COUNSELOR / CIVIL"> COUNSELOR / CIVIL </option>
+      <option value="PROSECUTION"> PROSECUTION </option>
+      <option value="MUN COURT OPERATIONS"> MUN COURT OPERATIONS </option>
+      <option value="MUN COURT TRAFFIC VIOLATIONS"> MUN COURT TRAFFIC VIOLATIONS </option>
+      <option value="IT ADMINISTRATION"> IT ADMINISTRATION </option>
+      <option value="IT TELEPHONE"> IT TELEPHONE </option>
+      <option value="IT HELP DESK"> IT HELP DESK </option>
+      <option value="IT APPLICATIONS SUPPORT"> IT APPLICATIONS SUPPORT </option>
+      <option value="IT INFRASTRUCTURE"> IT INFRASTRUCTURE </option>
+      <option value="IT GIS"> IT GIS </option>
+      <option value="IT PMO"> IT PMO </option>
+      <option value="MID MISSOURI SOLID WASTE DISTR"> MID MISSOURI SOLID WASTE DISTR </option>
+      <option value="PD ADMINISTRATION"> PD ADMINISTRATION </option>
+      <option value="PD OPERATIONS/PATROL"> PD OPERATIONS/PATROL </option>
+      <option value="PD RECORDS ADMIN SUPPORT"> PD RECORDS ADMIN SUPPORT </option>
+      <option value="PD OPERATIONS SUPP ADMIN"> PD OPERATIONS SUPP ADMIN </option>
+      <option value="FIRE ADMINISTRATION"> FIRE ADMINISTRATION </option>
+      <option value="FIRE EMERGENCY SERVICES"> FIRE EMERGENCY SERVICES </option>
+      <option value="FIRE TRAINING"> FIRE TRAINING </option>
+      <option value="FIRE CODE ENFORCE &amp; INVEST"> FIRE CODE ENFORCE &amp; INVEST </option>
+      <option value="HD ADMINISTRATION"> HD ADMINISTRATION </option>
+      <option value="HD EPIDEMIOLOGY PLANNING EV"> HD EPIDEMIOLOGY PLANNING EV </option>
+      <option value="HD COMMUNITY HEALTH PROMOTION"> HD COMMUNITY HEALTH PROMOTION </option>
+      <option value="HD ANIMAL CONTROL"> HD ANIMAL CONTROL </option>
+      <option value="HD ENVIRONMENTAL HEALTH"> HD ENVIRONMENTAL HEALTH </option>
+      <option value="HD ADMINISTRATION &amp; SUPPORT"> HD ADMINISTRATION &amp; SUPPORT </option>
+      <option value="HD COMM DISEASE PREV/CONTROL"> HD COMM DISEASE PREV/CONTROL </option>
+      <option value="HD PUB HEALTH NURSING SERV"> HD PUB HEALTH NURSING SERV </option>
+      <option value="HD CLINICAL PREVENTIVE SERVS"> HD CLINICAL PREVENTIVE SERVS </option>
+      <option value="HD WIC &amp; COMMUNITY NUTRITION"> HD WIC &amp; COMMUNITY NUTRITION </option>
+      <option value="PLANNING"> PLANNING </option>
+      <option value="ECONOMIC PLANNING"> ECONOMIC PLANNING </option>
+      <option value="VOLUNTEER PROGRAMS"> VOLUNTEER PROGRAMS </option>
+      <option value="NEIGHBORHOOD PROGRAMS"> NEIGHBORHOOD PROGRAMS </option>
+      <option value="BLDG &amp; SITE DEVELOPMENT"> BLDG &amp; SITE DEVELOPMENT </option>
+      <option value="HUD"> HUD </option>
+      <option value="ECONOMIC DEVELOPMENT"> ECONOMIC DEVELOPMENT </option>
+      <option value="HUMAN SERVICES SUPPORT"> HUMAN SERVICES SUPPORT </option>
+      <option value="SOCIAL SERVICES"> SOCIAL SERVICES </option>
+      <option value="CULTURAL AFFAIRS"> CULTURAL AFFAIRS </option>
+      <option value="CONVENTION &amp; TOURISM ADMIN"> CONVENTION &amp; TOURISM ADMIN </option>
+      <option value="P&amp;R ADMINISTRATION"> P&amp;R ADMINISTRATION </option>
+      <option value="P&amp;R CARE"> P&amp;R CARE </option>
+      <option value="P&amp;R PLAN &amp; DEV ADMINISTRATION"> P&amp;R PLAN &amp; DEV ADMINISTRATION </option>
+      <option value="P&amp;R PLANNING"> P&amp;R PLANNING </option>
+      <option value="P&amp;R HORTICULTURE"> P&amp;R HORTICULTURE </option>
+      <option value="P&amp;R PLANNING FORESTRY"> P&amp;R PLANNING FORESTRY </option>
+      <option value="P&amp;R CONSTR &amp; IMPROVEMENTS"> P&amp;R CONSTR &amp; IMPROVEMENTS </option>
+      <option value="P&amp;R PARKS MGMT ADMIN"> P&amp;R PARKS MGMT ADMIN </option>
+      <option value="REC SERV MGMT ADMIN"> REC SERV MGMT ADMIN </option>
+      <option value="P&amp;R PARKS MGMT CENTER"> P&amp;R PARKS MGMT CENTER </option>
+      <option value="P&amp;R PARKS MGMT OPERATIONS"> P&amp;R PARKS MGMT OPERATIONS </option>
+      <option value="P&amp;R RANGER PROGRAM"> P&amp;R RANGER PROGRAM </option>
+      <option value="REC SERV ADMINISTRATION"> REC SERV ADMINISTRATION </option>
+      <option value="REC SERV SPORTS PROGRAMS"> REC SERV SPORTS PROGRAMS </option>
+      <option value="REC SERV COMMUNITY REC"> REC SERV COMMUNITY REC </option>
+      <option value="REC SERV AQUATICS OUTDOOR"> REC SERV AQUATICS OUTDOOR </option>
+      <option value="REC SERV GOLF"> REC SERV GOLF </option>
+      <option value="REC SERV SPECIAL OLYMPICS"> REC SERV SPECIAL OLYMPICS </option>
+      <option value="REC SERV SENIOR/50 PLUS PROG"> REC SERV SENIOR/50 PLUS PROG </option>
+      <option value="REC SERV CLASSES &amp; EVENTS"> REC SERV CLASSES &amp; EVENTS </option>
+      <option value="REC SERV ADAPTED COMM REC"> REC SERV ADAPTED COMM REC </option>
+      <option value="REC SERV ARC ADMINISTRATION"> REC SERV ARC ADMINISTRATION </option>
+      <option value="REC SERV ARC FITNESS"> REC SERV ARC FITNESS </option>
+      <option value="REC SERV ARC GENERAL OPS"> REC SERV ARC GENERAL OPS </option>
+      <option value="REC SERV ARC MAINTENANCE"> REC SERV ARC MAINTENANCE </option>
+      <option value="REC SERV GOLF &amp; ATHLETICS"> REC SERV GOLF &amp; ATHLETICS </option>
+      <option value="REC SERVICES GOLF COURSE MAINT"> REC SERVICES GOLF COURSE MAINT </option>
+      <option value="PW ADMINISTRATION"> PW ADMINISTRATION </option>
+      <option value="PW STREETS ADMIN"> PW STREETS ADMIN </option>
+      <option value="PW STREETS MAINTENANCE"> PW STREETS MAINTENANCE </option>
+      <option value="PW STREET CLEANING"> PW STREET CLEANING </option>
+      <option value="PW ENGINEERING"> PW ENGINEERING </option>
+      <option value="PARKING ENFORCEMENT"> PARKING ENFORCEMENT </option>
+      <option value="PW TRAFFIC CONTROL"> PW TRAFFIC CONTROL </option>
+      <option value="PUB TRANS FIXED ROUTE"> PUB TRANS FIXED ROUTE </option>
+      <option value="PUB TRANS PARATRANSIT"> PUB TRANS PARATRANSIT </option>
+      <option value="PUB TRANS UNIVERSITY SHUTTLE"> PUB TRANS UNIVERSITY SHUTTLE </option>
+      <option value="AIRPORT ADMINISTRATION"> AIRPORT ADMINISTRATION </option>
+      <option value="AIRPORT AIRFIELD AREAS"> AIRPORT AIRFIELD AREAS </option>
+      <option value="AIRPORT TERMINAL AREAS"> AIRPORT TERMINAL AREAS </option>
+      <option value="AIRPORT PUBLIC SAFETY"> AIRPORT PUBLIC SAFETY </option>
+      <option value="SEWER ADMINISTRATION"> SEWER ADMINISTRATION </option>
+      <option value="SEWER ENGINEERING"> SEWER ENGINEERING </option>
+      <option value="SEWER SLUDGE &amp; GROUNDS"> SEWER SLUDGE &amp; GROUNDS </option>
+      <option value="SEWER FIELD OPERATIONS"> SEWER FIELD OPERATIONS </option>
+      <option value="SEWER WASTEWATER TRMT OPER"> SEWER WASTEWATER TRMT OPER </option>
+      <option value="SEWER WASTEWATER TRMT LAB"> SEWER WASTEWATER TRMT LAB </option>
+      <option value="SEWER LINE MAINTENANCE"> SEWER LINE MAINTENANCE </option>
+      <option value="PARKING FACILITIES"> PARKING FACILITIES </option>
+      <option value="SOLID WASTE ADMINISTRATION"> SOLID WASTE ADMINISTRATION </option>
+      <option value="SOLID WASTE COMMERCIAL"> SOLID WASTE COMMERCIAL </option>
+      <option value="SOLID WASTE CONTAINER MAINT"> SOLID WASTE CONTAINER MAINT </option>
+      <option value="SOLID WASTE SBD WASTE MGMT DIS"> SOLID WASTE SBD WASTE MGMT DIS </option>
+      <option value="SOLID WASTE ROLLOFF SERV"> SOLID WASTE ROLLOFF SERV </option>
+      <option value="SOLID WASTE RESIDENTIAL"> SOLID WASTE RESIDENTIAL </option>
+      <option value="SOLID WASTE LANDFILL"> SOLID WASTE LANDFILL </option>
+      <option value="SOLID WASTE COMPOSTING"> SOLID WASTE COMPOSTING </option>
+      <option value="SOLID WASTE UNIVERSITY"> SOLID WASTE UNIVERSITY </option>
+      <option value="SOLID WASTE RECYCLING"> SOLID WASTE RECYCLING </option>
+      <option value="SOLID WASTE RECYCLING DROPOFF"> SOLID WASTE RECYCLING DROPOFF </option>
+      <option value="SOLID WASTE COMM RECYCLING"> SOLID WASTE COMM RECYCLING </option>
+      <option value="SOLID WASTE MATERIAL RECOVERY"> SOLID WASTE MATERIAL RECOVERY </option>
+      <option value="STORM WATER ENGINEERING"> STORM WATER ENGINEERING </option>
+      <option value="STORM WATER FIELD OPS"> STORM WATER FIELD OPS </option>
+      <option value="PB BUILDING MAINTENANCE"> PB BUILDING MAINTENANCE </option>
+      <option value="PB CUSTODIAL SERVICES"> PB CUSTODIAL SERVICES </option>
+      <option value="FO FLEET OPERATIONS"> FO FLEET OPERATIONS </option>
+      <option value="WT ENGINEERING"> WT ENGINEERING </option>
+      <option value="WT PRODUCTION PLANT"> WT PRODUCTION PLANT </option>
+      <option value="WT TRANS DISTR OPERATIONS"> WT TRANS DISTR OPERATIONS </option>
+      <option value="WT METER TESTING &amp; MAINT"> WT METER TESTING &amp; MAINT </option>
+      <option value="EL ADMINISTRATION"> EL ADMINISTRATION </option>
+      <option value="EL RATE ANALYSIS"> EL RATE ANALYSIS </option>
+      <option value="EL UTILITY SERVICES"> EL UTILITY SERVICES </option>
+      <option value="EL ENGINEERING"> EL ENGINEERING </option>
+      <option value="EL PRODUCTION"> EL PRODUCTION </option>
+      <option value="EL LANDFILL GAS GENERATOR"> EL LANDFILL GAS GENERATOR </option>
+      <option value="EL ENERGY CENTER"> EL ENERGY CENTER </option>
+      <option value="EL GENERAL OPERATIONS"> EL GENERAL OPERATIONS </option>
+      <option value="EL TRANS CONTROL RM"> EL TRANS CONTROL RM </option>
+      <option value="EL STOREROOM"> EL STOREROOM </option>
+      <option value="EL METER TESTING &amp; MAINT"> EL METER TESTING &amp; MAINT </option>
+      <option value="EL METER READING"> EL METER READING </option>
+      <option value="RR ADMINISTRATION"> RR ADMINISTRATION </option>
     </select>
   </form>
 </div>
-  <h2>Record not found</h2>
+
+  <div class="errorMessage">
+    <h4>Record not found. Please search again.</h4>
+  </div>
+
   <table class="table">
     <thead>
       <tr>

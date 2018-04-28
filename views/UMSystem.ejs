@@ -1,5 +1,36 @@
 <% include partials/header %>
 
-<h1>THIS IS THE UM SYSTEM PAGE</h1>
+<h2 class="header">Columbia Missourian State Worker Salary Database</h2>
+
+<div class="formContainer">
+<form action="/UMSystem/searchName" method="POST" class="search">
+  <div class="pageInfo">
+    <h4>You are searching the UM System database</h4>
+  </div>
+
+  <hr />
+
+  <div class="formTextWrapper">
+    <p class="formText">
+      Search UM System employees by name. For more specific results, you can specify the campus where the employee works.
+    </p>
+  </div>
+  <div class="nameInput">
+    <input type="text" name="last" placeholder="Last Name" required/>
+    <input type="text" name="first" placeholder="First Name" required/>
+    <select name="campus" onchange="this.form.submit()">
+      <option value="default">Select Campus</option>
+      <option value="COLUM">MU</option>
+      <option value="HOSPT">Hospital</option>
+      <option value="KCITY">UMKC</option>
+      <option value="ROLLA">Missouri S&T</option>
+      <option value="STLOU">UMSL</option>
+      <option value="UMSYS">UM System</option>
+    </select>
+  </div>
+  <button id="searchButton">Search</button>
+</form>
+
+</div>
 
 <% include partials/footer %>

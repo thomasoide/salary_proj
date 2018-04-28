@@ -4,6 +4,16 @@ var mysql = require('mysql');
 
 module.exports = {
 
+  // createConnection: function() {
+  //    var connection = mysql.createConnection({
+  //      host     : 'localhost',
+  //      user     : 'root',
+  //      password : 'JZI0K79qe2Xyonw',
+  //      database : 'new_schema'
+  //    });
+  //    return connection;
+  //  },
+
   query: function(query, params, callback) {
 
     var connection = mysql.createConnection({

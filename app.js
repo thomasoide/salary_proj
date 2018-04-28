@@ -43,8 +43,29 @@ app.get("/:agency", function(req, res) {
   else if (agency === "govt") {
     res.render("govt");
   }
-  else if (agency === "cps") {
-    res.render("cps");
+});
+
+app.get("/UMSystem/:campus", function(req, res) {
+  var campus = req.params.campus;
+  console.log(campus);
+
+  if (campus === 'COLUM') {
+    res.render("colum");
+  }
+  else if (campus === "HOSPT") {
+    res.render('hospt');
+  }
+  else if (campus === 'KCITY') {
+    res.render('umkc');
+  }
+  else if (campus === 'ROLLA') {
+    res.render('rolla');
+  }
+  else if (campus === 'STLOU') {
+    res.render('umsl');
+  }
+  else if (campus === 'UMSYS') {
+    res.render('umsys');
   }
 });
 
@@ -54,13 +75,14 @@ app.post("/:agency/searchDept", function(req, res){
     var params = [firstName, lastName];
     var agency = req.params.agency;
     var dept = req.body.select;
+    var campus = req.body.campus;
+    var umsystem = [dept, campus];
 
     if(req.params.agency === 'city') {
 
       model.query('SELECT * FROM como_employees WHERE Department = ?', dept, function (err, results) {
-        if (err) {
-          console.log('Error: ', err);
-        }
+        if (err) throw err
+
         else if (results.length !== 0){
           res.render("CityResults", {results: results});
         }
@@ -69,7 +91,6 @@ app.post("/:agency/searchDept", function(req, res){
         }
       });
     }
-
     else if (req.params.agency == 'govt') {
 
       model.query('SELECT * FROM salary WHERE agency = ?', dept, function (err, results) {
@@ -79,32 +100,59 @@ app.post("/:agency/searchDept", function(req, res){
           res.render("govtResults", {results: results});
         }
         else {
-          res.render("govtResults", {results: results});
+          res.render("govtNoResults", {results: results});
         }
       });
     }
+    /* else if (req.params.agency == 'UMSystem' && campus === 'default') {
+
+      model.query('SELECT * FROM UM-Salaries WHERE unit = ? AND department = ?', umsystem, function (err, results) {
+        if (err) throw err
+
+        else if (results.length !== 0){
+          res.render("UMSystemResults", {results: results});
+        }
+        else {
+          res.render("UMSystemNoResults", {results: results});
+        }
+      });
+
+    }
+    else if (req.params.agency == 'UMSystem' && campus.length !== 'default') {
+      model.query('SELECT * FROM UM-Salaries WHERE unit = ? AND department = ?', umsystem, function (err, results) {
+        if (err) throw err
+
+        else if (results.length !== 0){
+          res.render("UMSystemResults", {results: results});
+        }
+        else {
+          res.render("UMSystemNoResults", {results: results});
+        }
+      });
+
+    } */
 });
 
-app.post("/:agency/searchName", function(req, res){
+app.post("/:agency/searchName", function(req, res) {
     var firstName = req.body.first;
     var lastName = req.body.last;
     var params = [firstName, lastName];
     var agency = req.params.agency;
     var dept = req.body.select;
+    var campus = req.body.campus;
+    var umsystem = [firstName, lastName, campus];
 
     if(req.params.agency === 'city') {
 
-    model.query('SELECT * FROM como_employees WHERE First LIKE ? AND Last LIKE ?', params, function(err, results) {
-      if (err) {
-        console.log('Error: ', err);
-      }
-      else if (results.length !== 0){
-        res.render("CityResults", {results: results});
-      }
-      else {
-        res.render("CityNoResult", {results: results});
-      }
-    });
+      model.query('SELECT * FROM como_employees WHERE First LIKE ? AND Last LIKE ?', params, function(err, results) {
+        if (err) throw err
+        else if (results.length !== 0){
+          res.render("CityResults", {results: results});
+        }
+        else {
+          res.render("CityNoResult", {results: results});
+        }
+      });
 
     }
 
@@ -116,10 +164,60 @@ app.post("/:agency/searchName", function(req, res){
           res.render("govtResults", {results: results});
         }
         else {
-          res.render("govtResults", {results: results});
+          res.render("govtNoResults", {results: results});
         }
       });
+
     }
+
+    else if (req.params.agency == 'UMSystem' && campus === 'default') {
+
+      // var connection = model.createConnection();
+      //
+      // connection.connect(function(err){
+      //   if (err) throw error;
+      // });
+      //
+      // connection.query('SELECT * FROM UM_Salaries WHERE first LIKE ? AND last LIKE ?', params, function (err, results) {
+      //   if (err) throw err;
+      //   else if (results.length !== 0){
+      //     res.render("UMSystemResults", {results: results});
+      //   }
+      //   else {
+      //     res.render("UMSystemNoResults", {results: results});
+      //   }
+      // });
+      //
+      // connection.end();
+
+      model.query('SELECT * FROM UM_Salaries WHERE first LIKE ? AND last LIKE ?', params, function (err, results) {
+        if (err) throw err
+
+        else if (results.length !== 0){
+          res.render("UMSystemResults", {results: results});
+        }
+        else {
+          res.render("UMSystemNoResults", {results: results});
+        }
+      });
+
+    }
+
+    else if (req.params.agency == 'UMSystem' && campus.length !== 'default') {
+
+      model.query('SELECT * FROM UM_Salaries WHERE first LIKE ? AND last LIKE ? AND unit = ?', umsystem, function (err, results) {
+        if (err) throw err
+
+        else if (results.length !== 0){
+          res.render("UMSystemResults", {results: results});
+        }
+        else {
+          res.render("UMSystemNoResults", {results: results});
+        }
+      });
+
+    }
+
 });
 
 app.get("*", function(req, res){
