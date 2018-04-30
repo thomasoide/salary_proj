@@ -45,30 +45,6 @@ app.get("/:agency", function(req, res) {
   }
 });
 
-app.get("/UMSystem/:campus", function(req, res) {
-  var campus = req.params.campus;
-  console.log(campus);
-
-  if (campus === 'COLUM') {
-    res.render("colum");
-  }
-  else if (campus === "HOSPT") {
-    res.render('hospt');
-  }
-  else if (campus === 'KCITY') {
-    res.render('umkc');
-  }
-  else if (campus === 'ROLLA') {
-    res.render('rolla');
-  }
-  else if (campus === 'STLOU') {
-    res.render('umsl');
-  }
-  else if (campus === 'UMSYS') {
-    res.render('umsys');
-  }
-});
-
 app.post("/:agency/searchDept", function(req, res){
     var firstName = req.body.first;
     var lastName = req.body.last;
@@ -171,24 +147,6 @@ app.post("/:agency/searchName", function(req, res) {
     }
 
     else if (req.params.agency == 'UMSystem' && campus === 'default') {
-
-      // var connection = model.createConnection();
-      //
-      // connection.connect(function(err){
-      //   if (err) throw error;
-      // });
-      //
-      // connection.query('SELECT * FROM UM_Salaries WHERE first LIKE ? AND last LIKE ?', params, function (err, results) {
-      //   if (err) throw err;
-      //   else if (results.length !== 0){
-      //     res.render("UMSystemResults", {results: results});
-      //   }
-      //   else {
-      //     res.render("UMSystemNoResults", {results: results});
-      //   }
-      // });
-      //
-      // connection.end();
 
       model.query('SELECT * FROM UM_Salaries WHERE first LIKE ? AND last LIKE ?', params, function (err, results) {
         if (err) throw err

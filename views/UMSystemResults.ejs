@@ -1,15 +1,15 @@
 <% include partials/header %>
 
-<div class="formContainer">
-  <h2 class="header">Missouri State Worker Salary Database</h2>
+<h2 class="header">Columbia Missourian State Worker Salary Database</h2>
 
+<div class="formContainer">
 <form action="/UMSystem/searchName" method="POST" class="search">
-  <h4>You are searching the UM System database</h4>
-  <div class="formTextWrapper">
-    <p class="formText">
-      Search UM System employees by name. For more specific results, you can specify the campus where the employee works.
-    </p>
+  <div class="pageInfo">
+    <h4>You are searching the UM System database</h4>
   </div>
+
+  <hr />
+
   <div class="nameInput">
     <input type="text" name="last" placeholder="Last Name" required/>
     <input type="text" name="first" placeholder="First Name" required/>
