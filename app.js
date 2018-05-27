@@ -50,13 +50,14 @@ app.post("/:agency/searchDept", function(req, res){
     var lastName = req.body.last;
     var params = [firstName, lastName];
     var agency = req.params.agency;
-    var dept = req.body.select;
+    var dept = '%' + req.body.select + '%';
     var campus = req.body.campus;
     var umsystem = [dept, campus];
 
     if(req.params.agency === 'city') {
 
-      model.query('SELECT * FROM como_employees WHERE Department = ?', dept, function (err, results) {
+      model.query('SELECT * FROM como_employees WHERE Department LIKE ? ORDER BY last', dept, function (err, results) {
+        //
         if (err) throw err
 
         else if (results.length !== 0){
@@ -69,7 +70,7 @@ app.post("/:agency/searchDept", function(req, res){
     }
     else if (req.params.agency == 'govt') {
 
-      model.query('SELECT * FROM salary WHERE agency = ?', dept, function (err, results) {
+      model.query('SELECT * FROM salary WHERE agency = ? ORDER BY last', dept, function (err, results) {
         if (err) throw err
 
         else if (results.length !== 0){
@@ -80,33 +81,6 @@ app.post("/:agency/searchDept", function(req, res){
         }
       });
     }
-    /* else if (req.params.agency == 'UMSystem' && campus === 'default') {
-
-      model.query('SELECT * FROM UM-Salaries WHERE unit = ? AND department = ?', umsystem, function (err, results) {
-        if (err) throw err
-
-        else if (results.length !== 0){
-          res.render("UMSystemResults", {results: results});
-        }
-        else {
-          res.render("UMSystemNoResults", {results: results});
-        }
-      });
-
-    }
-    else if (req.params.agency == 'UMSystem' && campus.length !== 'default') {
-      model.query('SELECT * FROM UM-Salaries WHERE unit = ? AND department = ?', umsystem, function (err, results) {
-        if (err) throw err
-
-        else if (results.length !== 0){
-          res.render("UMSystemResults", {results: results});
-        }
-        else {
-          res.render("UMSystemNoResults", {results: results});
-        }
-      });
-
-    } */
 });
 
 app.post("/:agency/searchName", function(req, res) {
