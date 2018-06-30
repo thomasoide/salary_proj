@@ -210,6 +210,10 @@ nav a:hover {
   color: #fff;
 }
 
+.salary::before {
+  content:"$";
+}
+
 
 @media only screen and (max-width: 970px) {
 
@@ -271,7 +275,9 @@ nav a:hover {
   td:nth-of-type(2):before { content: "First Name:"; }
   td:nth-of-type(3):before { content: "Job:"; }
   td:nth-of-type(4):before { content: "Department:"; }
-  td:nth-of-type(5):before { content: "Salary:"; }
+  td:nth-of-type(5):before { content: "Salary: $"; }
+
+
 }
 
 @media only screen and (min-width: 1200px) {
