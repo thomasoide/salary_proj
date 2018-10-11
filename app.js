@@ -56,7 +56,7 @@ app.post("/:agency/searchDept", function(req, res){
 
     if(req.params.agency === 'city') {
 
-      model.query('SELECT * FROM como_employees WHERE Department LIKE ? ORDER BY last', dept, function (err, results) {
+      model.query('SELECT * FROM como_employees WHERE Department LIKE ? ORDER BY Salary DESC', dept, function (err, results) {
         //
         if (err) throw err
 
@@ -70,7 +70,7 @@ app.post("/:agency/searchDept", function(req, res){
     }
     else if (req.params.agency == 'govt') {
 
-      model.query('SELECT * FROM salary WHERE agency = ? ORDER BY last', dept, function (err, results) {
+      model.query('SELECT * FROM salary WHERE agency = ? ORDER BY pay DESC', dept, function (err, results) {
         if (err) throw err
 
         else if (results.length !== 0){
